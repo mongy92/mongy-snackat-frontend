@@ -1,11 +1,13 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 
+const queryClient = new QueryClient();
 const App = () => {
   return (
-    <View className="flex-1 items-center justify-center bg-fuchsia-500">
-      <Text className="text-green-500 font-black">Hello</Text>
-    </View>
+    <QueryClientProvider client={queryClient}>
+      <View />
+    </QueryClientProvider>
   );
 };
 
