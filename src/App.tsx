@@ -1,12 +1,15 @@
 import React from 'react';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import Home from '@src/screens/Home';
+import CartContextProvider from '@src/contexts/CartContext';
 
 const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <Home />
+      <CartContextProvider>
+        <Home />
+      </CartContextProvider>
     </QueryClientProvider>
   );
 };
