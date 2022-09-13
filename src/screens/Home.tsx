@@ -3,6 +3,7 @@ import React from 'react';
 import {useQuery} from '@tanstack/react-query';
 import {fetchProducts} from '@src/api';
 import {ProductList} from '@src/components';
+import {CartList} from '@src/components/CartList';
 
 const Home = () => {
   const {data, isError, isFetching} = useQuery(['products'], fetchProducts);
@@ -26,6 +27,7 @@ const Home = () => {
     <View className="flex-1 flex-row">
       <ProductList products={data || []} />
       <View className="border-2" />
+      <CartList />
     </View>
   );
 };
