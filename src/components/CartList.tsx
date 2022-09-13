@@ -11,7 +11,8 @@ import {ICartItem} from '@src/types';
 import {useCart} from '@src/hooks/useCart';
 
 export const CartList: React.FC = ({}) => {
-  const {cart, removeFromCart, incrementQty, decrementQty} = useCart();
+  const {cart, removeFromCart, incrementQty, decrementQty, totalPrice} =
+    useCart();
   function renderItem({item}: ListRenderItemInfo<ICartItem>) {
     return (
       <CartCard
@@ -23,9 +24,21 @@ export const CartList: React.FC = ({}) => {
     );
   }
 
+  function renderTotal() {
+    if (cart.length) {
+      return (
+        <View className="flex-row p-2 bg-white border-t items-center justify-center">
+          <Text className="font-bold mr-2">Total price : </Text>
+          <Text className="text-sm">USD {totalPrice.toFixed(2)}</Text>
+        </View>
+      );
+    }
+    return null;
+  }
   return (
     <View className="w-1/2">
       <Header title="Cart" />
+
       <FlatList
         data={cart}
         renderItem={renderItem}
@@ -34,6 +47,14 @@ export const CartList: React.FC = ({}) => {
           <Text className="text-center">Please add items...</Text>
         }
       />
+      {cart.length > 0 && (
+        <View className="flex-row p-2 bg-white border-t items-center justify-center">
+          <Text className="font-bold mr-2">Total price : </Text>
+          <Text className="text-xs font-semibold">
+            ${totalPrice.toFixed(2)}
+          </Text>
+        </View>
+      )}
     </View>
   );
 };

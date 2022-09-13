@@ -1,6 +1,7 @@
 import {CartContextType} from '@src/contexts/types';
 import {ICartItem, IProduct} from '@src/types';
 import React, {createContext, PropsWithChildren, useState} from 'react';
+import {useMemo} from 'react';
 
 const EMPTY_FUNCTION = () => {};
 
@@ -10,6 +11,7 @@ export const CartContext = createContext<CartContextType>({
   removeFromCart: EMPTY_FUNCTION,
   incrementQty: EMPTY_FUNCTION,
   decrementQty: EMPTY_FUNCTION,
+  totalPrice: 0,
 });
 
 const CartContextProvider: React.FC<PropsWithChildren> = ({children}) => {
@@ -42,9 +44,23 @@ const CartContextProvider: React.FC<PropsWithChildren> = ({children}) => {
     changeQty(id, -1);
   }
 
+  const totalPrice = useMemo<number>(() => {
+    return cart.reduce(
+      (prev, curr) => prev + curr.product.price * curr.quantity,
+      0,
+    );
+  }, [cart]);
+
   return (
     <CartContext.Provider
-      value={{cart, addtoCart, removeFromCart, incrementQty, decrementQty}}>
+      value={{
+        cart,
+        addtoCart,
+        removeFromCart,
+        incrementQty,
+        decrementQty,
+        totalPrice,
+      }}>
       {children}
     </CartContext.Provider>
   );
