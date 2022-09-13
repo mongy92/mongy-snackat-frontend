@@ -1,7 +1,6 @@
 import React from 'react';
 import {FlatList, ListRenderItemInfo, StyleSheet, View} from 'react-native';
-import {CartCard} from '@src/components/CartCard';
-import {Header} from '@src/components/Header';
+import {CartCard, Header} from '@src/components';
 import {ICartItem} from '@src/types';
 import {useCart} from '@src/hooks/useCart';
 

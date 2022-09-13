@@ -3,8 +3,7 @@ import React from 'react';
 
 import {ICartItem} from '@src/types';
 import {Card} from '@src/components/Card';
-import {Counter} from '@src/components/Counter';
-import {Button} from '@src/components/Button';
+import {Button, Counter} from '@src/components';
 
 interface Props {
   item: ICartItem;

@@ -1,9 +1,9 @@
 import {View, Text, ActivityIndicator} from 'react-native';
 import React from 'react';
 import {useQuery} from '@tanstack/react-query';
+
 import {fetchProducts} from '@src/api';
-import {ProductList} from '@src/components';
-import {CartList} from '@src/components/CartList';
+import {ProductList, CartList} from '@src/components';
 
 const Home = () => {
   const {data, isError, isFetching} = useQuery(['products'], fetchProducts);
