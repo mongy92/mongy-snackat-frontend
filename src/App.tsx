@@ -1,12 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
+import Home from '@src/screens/Home';
 
 const queryClient = new QueryClient();
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <View />
+      <Home />
     </QueryClientProvider>
   );
 };
