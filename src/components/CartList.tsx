@@ -24,17 +24,6 @@ export const CartList: React.FC = ({}) => {
     );
   }
 
-  function renderTotal() {
-    if (cart.length) {
-      return (
-        <View className="flex-row p-2 bg-white border-t items-center justify-center">
-          <Text className="font-bold mr-2">Total price : </Text>
-          <Text className="text-sm">USD {totalPrice.toFixed(2)}</Text>
-        </View>
-      );
-    }
-    return null;
-  }
   return (
     <View className="w-1/2">
       <Header title="Cart" />

@@ -24,7 +24,7 @@ export const ProductCard: React.FC<Props> = ({
         {product.title}
       </Text>
       <View className="flex-row justify-between  mt-3">
-        <Text className="font-bold text-black text-sm">{`USD ${product.price}`}</Text>
+        <Text className="font-bold text-black text-sm">{`$${product.price}`}</Text>
         <Text className="font-bold text-black text-sm">
           {product.rating.rate}/{product.rating.count}
         </Text>
