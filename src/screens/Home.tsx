@@ -2,6 +2,7 @@ import {View, Text, ActivityIndicator} from 'react-native';
 import React from 'react';
 import {useQuery} from '@tanstack/react-query';
 import {fetchProducts} from '@src/api';
+import {ProductList} from '@src/components';
 
 const Home = () => {
   const {data, isError, isFetching} = useQuery(['products'], fetchProducts);
@@ -21,10 +22,10 @@ const Home = () => {
       </View>
     );
   }
-  console.log(data);
   return (
-    <View>
-      <Text>Home</Text>
+    <View className="flex-1 flex-row">
+      <ProductList products={data || []} />
+      <View className="border-2" />
     </View>
   );
 };
