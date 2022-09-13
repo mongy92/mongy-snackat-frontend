@@ -1,4 +1,4 @@
-import {View, Text, ActivityIndicator} from 'react-native';
+import {View, Text, ActivityIndicator, SafeAreaView} from 'react-native';
 import React from 'react';
 import {useQuery} from '@tanstack/react-query';
 
@@ -24,11 +24,11 @@ const Home = () => {
     );
   }
   return (
-    <View className="flex-1 flex-row">
+    <SafeAreaView className="flex-1 flex-row">
       <ProductList products={data || []} />
       <View className="border-2" />
       <CartList />
-    </View>
+    </SafeAreaView>
   );
 };
 
